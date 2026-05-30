@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>May 2026 — A Chronicle for Our Children · David & Loretta</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --ink-soft: #3d3020;
+    --ink-muted: #7a6a52;
+    --cream: #faf6ef;
+    --cream-warm: #f3ead8;
+    --cream-deep: #e8dbc4;
+    --gold: #c49a2e;
+    --gold-light: #e8c96a;
+    --rust: #b84c2e;
+    --sage: #4a6741;
+    --border: #d4c4a8;
+    --callout-bg: #fdf8f0;
+    --callout-border: #c49a2e;
+    --quote-bg: #f5efe3;
+    --quote-border: #b84c2e;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'Lora', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.85;
+    min-height: 100vh;
+  }
+
+  /* ── Paper texture overlay ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+  }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ── MASTHEAD ── */
+  .masthead {
+    text-align: center;
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 3rem;
+    animation: fadeUp 1s ease both;
+  }
+
+  .masthead-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+  }
+
+  .masthead h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--rust);
+  }
+
+  .masthead-sub {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    margin-bottom: 1.8rem;
+  }
+
+  .masthead-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--border);
+    font-size: 1.2rem;
+  }
+  .masthead-ornament span { flex: 1; height: 1px; background: var(--border); max-width: 80px; }
+
+  /* ── AEO QUICK ANSWER ── */
+  .quick-answer {
+    background: var(--callout-bg);
+    border: 1px solid var(--callout-border);
+    border-left: 5px solid var(--callout-border);
+    border-radius: 4px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 1s 0.15s ease both;
+  }
+
+  .quick-answer-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .quick-answer p {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+
+  .quick-answer strong { color: var(--ink); font-weight: 600; }
+
+  /* ── KEY QUESTIONS ── */
+  .key-questions {
+    background: var(--cream-warm);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.4rem 1.8rem;
+    margin-bottom: 3rem;
+    animation: fadeUp 1s 0.25s ease both;
+  }
+
+  .key-questions-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10.5px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 1rem;
+  }
+
+  .key-questions ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .key-questions li {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    padding: 0.35rem 0;
+    border-bottom: 1px dashed var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+
+  .key-questions li:last-child { border-bottom: none; }
+
+  .key-questions li::before {
+    content: '→';
+    color: var(--gold);
+    font-weight: 600;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ── SECTION HEADINGS ── */
+  .section {
+    margin-bottom: 3rem;
+    animation: fadeUp 1s 0.35s ease both;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.55rem;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--cream-deep);
+    position: relative;
+  }
+
+  h2::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: var(--gold);
+  }
+
+  h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--rust);
+    margin: 1.4rem 0 0.5rem;
+  }
+
+  /* ── BODY TEXT ── */
+  p {
+    margin-bottom: 1.1rem;
+    color: var(--ink-soft);
+  }
+
+  strong, b {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ── BULLET LISTS ── */
+  ul.story-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0 1.2rem;
+  }
+
+  ul.story-list li {
+    padding: 0.3rem 0 0.3rem 1.5rem;
+    position: relative;
+    color: var(--ink-soft);
+    font-size: 0.97rem;
+  }
+
+  ul.story-list li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.6rem;
+    top: 0.55rem;
+  }
+
+  /* ── BLOCKQUOTES ── */
+  blockquote {
+    background: var(--quote-bg);
+    border-left: 4px solid var(--rust);
+    padding: 1.1rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 0 4px 4px 0;
+  }
+
+  blockquote p {
+    font-style: italic;
+    font-size: 1.02rem;
+    color: var(--ink-soft);
+    margin-bottom: 0;
+  }
+
+  blockquote cite {
+    display: block;
+    margin-top: 0.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    font-style: normal;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── DATE STAMPS ── */
+  .date-stamp {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--cream-warm);
+    border: 1px solid var(--border);
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 2px;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── PEOPLE CARDS ── */
+  .people-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.2rem 0;
+  }
+
+  .person-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1rem 1.2rem;
+  }
+
+  .person-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+
+  .person-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ── WISDOM STATION CARDS ── */
+  .stations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem;
+    margin: 1.2rem 0;
+  }
+
+  .station-card {
+    background: var(--cream-warm);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--gold);
+    padding: 1rem;
+    border-radius: 0 0 4px 4px;
+  }
+
+  .station-num {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .station-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .station-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.55;
+  }
+
+  /* ── BOTTOM LINE ── */
+  .bottom-line {
+    background: var(--ink);
+    color: var(--cream);
+    border-radius: 6px;
+    padding: 2.5rem 2.2rem;
+    margin-top: 3.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-line::before {
+    content: '"';
+    position: absolute;
+    top: -0.5rem;
+    right: 1.5rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 10rem;
+    color: var(--gold);
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .bottom-line h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--gold-light);
+    border-bottom-color: rgba(196, 154, 46, 0.2);
+    margin-bottom: 1.2rem;
+  }
+
+  .bottom-line h2::before { background: var(--gold-light); }
+
+  .bottom-line p {
+    color: rgba(250, 246, 239, 0.88);
+    font-size: 1.05rem;
+    line-height: 1.9;
+  }
+
+  .bottom-line strong { color: var(--gold-light); }
+
+  /* ── FOOTER ── */
+  .chronicle-footer {
+    text-align: center;
+    padding: 3rem 0 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .chronicle-footer p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.08em;
+  }
+
+  .footer-ornament {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    opacity: 0.5;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ── PULL QUOTE ── */
+  .pull-quote {
+    margin: 2rem -1rem;
+    padding: 1.5rem 2rem;
+    border-top: 2px solid var(--gold);
+    border-bottom: 2px solid var(--gold);
+    text-align: center;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.25rem;
+    color: var(--ink);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── CHAPTER MARKER ── */
+  .chapter-marker {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 2.5rem 0 1.5rem;
+    color: var(--ink-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  .chapter-marker::before,
+  .chapter-marker::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .section:nth-child(1) { animation-delay: 0.1s; }
+  .section:nth-child(2) { animation-delay: 0.2s; }
+  .section:nth-child(3) { animation-delay: 0.3s; }
+  .section:nth-child(4) { animation-delay: 0.4s; }
+  .section:nth-child(5) { animation-delay: 0.5s; }
+  .section:nth-child(6) { animation-delay: 0.6s; }
+
+  @media (max-width: 600px) {
+    .people-row { grid-template-columns: 1fr; }
+    .pull-quote { margin: 2rem 0; }
+    body { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════════════════
+       MASTHEAD
+  ══════════════════════════════════════════ -->
+  <header class="masthead">
+    <div class="masthead-label">A Family Chronicle · Written for Isaac & Nehemiah</div>
+    <h1>The Month God<br><em>Held Our Hands</em></h1>
+    <p class="masthead-sub">May 2026 — Bengaluru, India · As told by David</p>
+    <div class="masthead-ornament">
+      <span></span>
+      ✦
+      <span></span>
+    </div>
+  </header>
+
+
+  <!-- ══════════════════════════════════════════
+       AEO — QUICK ANSWER
+  ══════════════════════════════════════════ -->
+  <div class="quick-answer">
+    <div class="quick-answer-label">💡 Quick Answer</div>
+    <p>
+      In May 2026, our family walked through a month of <strong>physical pain, financial uncertainty, and a near-costly decision</strong> — and came out the other side more grateful, more grounded, and more protected than we had ever planned for. We served at children's and teens' camps, built technology for a ministry, and were stopped from making a grave mistake by the timely wisdom of a trusted pastor. <strong>God's hand was unmistakably present in every turn.</strong>
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       AEO — KEY QUESTIONS ANSWERED
+  ══════════════════════════════════════════ -->
+  <div class="key-questions">
+    <div class="key-questions-label">📖 Key Questions This Story Answers</div>
+    <ul>
+      <li>What happened to our family in May 2026, and why does it matter?</li>
+      <li>Who is Brother George Ebenezer and how did we come to serve with him?</li>
+      <li>What are the Life 180 and Beyond Barriers camps, and what did we do there?</li>
+      <li>What was the "Blessing Station" — and why was it so powerful?</li>
+      <li>What mistake did God protect us from making with Beyond Barriers?</li>
+      <li>What did Pastor Ashish Raichu say that changed everything?</li>
+      <li>Who are Andrew and Janice, and what new doors opened through them?</li>
+      <li>What was the intelligence layer idea, and why did it excite your father?</li>
+    </ul>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 1
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="date-stamp">May 1 – 4, 2026</div>
+    <h2>How Did This Month Begin — With Pain and a Phone Call?</h2>
+
+    <p>
+      May did not begin gently. Your father, David, was dealing with <strong>severe back pain</strong> and an injured left leg, making regular trips to a physiotherapist near our home. There was nothing dramatic about it on the outside — just the slow, humbling work of a body that needed care.
+    </p>
+    <p>
+      Then, on <strong>May 4th</strong>, the phone rang.
+    </p>
+
+    <blockquote>
+      <p>"Brother David, would you be willing to come and talk to us? We really want to build some revenue streams that will enable us and take us further."</p>
+      <cite>— Brother George Ebenezer, on the phone that changed the month</cite>
+    </blockquote>
+
+    <p>
+      Brother George Ebenezer led a ministry called <strong>Beyond Barriers</strong>, which worked with children, teenagers, and counselors. He had just gone through a devastating season — out of a team of 15 to 17 people, <strong>at least 12 had quit in quick succession</strong>. It had begun when a video editor left dramatically, creating a ripple of exits that gutted the team.
+    </p>
+    <p>
+      Your parents, David and Loretta, had volunteered with Beyond Barriers before. They knew the work. And they were also at their own crossroads: <strong>neither had a job</strong>. Both were praying, seeking God, asking what was next.
+    </p>
+    <p>
+      So when Brother George called, it felt like an answer. We stepped in — not knowing yet how God would use even this moment as a test.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 2
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="date-stamp">May 5 – 8, 2026</div>
+    <h2>What Was the Life 180 Camp — and What Did We Teach Teenagers?</h2>
+
+    <p>
+      The first assignment was the <strong>Life 180 Teen & Adolescent Residential Camp</strong> — a four-day residential experience for young people between <strong>14 and 18 years old</strong>. About <strong>22 young people</strong> attended, and with the team, the total group was 25 to 27 strong.
+    </p>
+    <p>
+      These teenagers were being trained in a beautiful idea: how to <strong>minister to younger children</strong>. They learned puppetry. They practiced teaching. They were given the tools to pass on what they themselves were receiving.
+    </p>
+    <p>
+      The teaching came from the <strong>Book of Ecclesiastes, Chapters 7 and 8</strong> — ancient wisdom about how to make choices, how to live with understanding, how to act with discernment. It was rich, deep material, spoken into young hearts that needed it.
+    </p>
+    <p>
+      Your mother Loretta and I also took part in what Brother George called the <strong>Blessing Station</strong> — one of eight spiritual "stations" the children moved through on the final day. At this station, a husband and wife (your parents) would sit quietly, and children would come to receive prayer.
+    </p>
+
+    <h3>The Eight Stations of the Spirit</h3>
+
+    <div class="stations-grid">
+      <div class="station-card">
+        <div class="station-num">Station 1</div>
+        <div class="station-title">The Cross</div>
+        <div class="station-desc">Write a sin, nail it to the cross, pick up a promise of forgiveness.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 2</div>
+        <div class="station-title">The Mirror</div>
+        <div class="station-desc">Write a lie you believe about yourself. Stick it on the mirror. Pick up God's truth about your identity.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 3</div>
+        <div class="station-title">The Prayer Wall</div>
+        <div class="station-desc">Read a written prayer, pray it, then write your own and leave it there.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 4</div>
+        <div class="station-title">The Suitcase</div>
+        <div class="station-desc">Write a dream of travel and service. Place it in the suitcase. Surrender it to God.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 5</div>
+        <div class="station-title">The Mural</div>
+        <div class="station-desc">Draw, paint, or write whatever the Holy Spirit lays on your heart. A vision. A word. A colour.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 6 & 7</div>
+        <div class="station-title">The Maps</div>
+        <div class="station-desc">Place your hand on the map of India, then the world. Pray for wherever God leads you.</div>
+      </div>
+      <div class="station-card">
+        <div class="station-num">Station 8</div>
+        <div class="station-title">The Blessing Station</div>
+        <div class="station-desc">A husband and wife sit in silence. Children come. The Holy Spirit speaks. No questions asked — only love given.</div>
+      </div>
+    </div>
+
+    <blockquote>
+      <p>There was no talk between either of us — we didn't ask what they wanted prayer for. Whatever the Holy Spirit laid on our hearts, we ministered. And the Holy Spirit moved in that place.</p>
+      <cite>— David, describing the Blessing Station</cite>
+    </blockquote>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 3
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="date-stamp">The Following Week</div>
+    <h2>What Happened at the Full Children's and Teens' Camp?</h2>
+
+    <p>
+      The Life 180 camp was the rehearsal. The full camp was the performance.
+    </p>
+    <p>
+      The very next week, Beyond Barriers ran a <strong>three-day Children's Camp</strong> followed by a <strong>three-day Teens' Camp</strong> — and the young people who had been trained at Life 180 stepped up as ministers themselves. They carried the puppets. They taught lessons. The seed had already been planted; now it bore fruit.
+    </p>
+    <p>
+      <strong>Isaac and Nehemiah</strong> — your children, reading this story someday — were there too. You were part of it. You ran in the water games, played alongside other children, and were held in the middle of something bigger than any of us fully understood at the time.
+    </p>
+    <p>
+      The schedule ran from <strong>morning to evening</strong>, full and rich:
+    </p>
+
+    <ul class="story-list">
+      <li>Worship sessions with dance and song led by the young people themselves</li>
+      <li>Deep-dive teaching from <strong>Ecclesiastes 7 & 8</strong> — wisdom for the young</li>
+      <li>Workshops in <strong>music, dance</strong>, and other creative disciplines</li>
+      <li>Dedicated sessions separating the men and the women — real, honest conversations</li>
+      <li>Games, water activities, laughter, and community</li>
+    </ul>
+
+    <p>
+      The men's session was one your father will not forget. Topics like <strong>sex, physical intimacy, identity, vulnerability, and digital addiction</strong> were placed on the table — not with shame, but with honesty. Boys spoke. They listened to each other. Something was unlocked.
+    </p>
+
+    <div class="pull-quote">
+      <p>"As we serve faithfully, we know our God is not in debt to any one of us."</p>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 4 — TECHNOLOGY
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="chapter-marker">Woven Through It All</div>
+    <h2>Your Father Was Also Building Something — What Was the Chatbot?</h2>
+
+    <p>
+      While ministering at the camps, your father was also building technology.
+    </p>
+    <p>
+      Brother George had spent <strong>30 years accumulating knowledge</strong> — counseling files, parenting guides, materials on teenagers, anger, sex, intimacy, stress, spiritual growth. He handed over <strong>1 terabyte of data</strong> and said, effectively, "Do something with this."
+    </p>
+    <p>
+      Your father used a method called <strong>Retrieval-Augmented Generation (RAG)</strong> — a way of building a chatbot that doesn't just guess, but actually searches through real documents to give meaningful answers. He placed an AI agent on top of it and integrated the whole system with <strong>Telegram</strong>, so families and young people could access Brother George's three decades of wisdom through a simple chat interface.
+    </p>
+    <p>
+      It was fast work. Imperfect work. But it was the kind of creative, purpose-driven building that has always been part of who your father is.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 5 — THE NEAR-MISTAKE
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="date-stamp">May 21, 2026</div>
+    <h2>What Nearly-Costly Mistake Did God Stop Us From Making?</h2>
+
+    <p>
+      This is the part of the story your parents most want you to understand.
+    </p>
+    <p>
+      Through the month, Brother George was asking your parents to <strong>formally join Beyond Barriers as directors</strong> — to sign papers, to commit, to help build revenue streams that would make the ministry self-sustaining. It felt like calling. It felt like confirmation. Loretta and David were praying through Deuteronomy Chapter 11 (a verse about stepping into a new land) and verses from Isaiah about God's provision.
+    </p>
+    <p>
+      But something in both their spirits was unsettled.
+    </p>
+    <p>
+      On <strong>May 21st</strong>, they went to meet <strong>Pastor Ashish Raichu</strong> at the APC Bible College. They had prepared. They brought the scriptures. They were ready to share their sense of calling.
+    </p>
+    <p>
+      Pastor Ashish listened carefully — and then, with deep wisdom, said something that stopped everything:
+    </p>
+
+    <blockquote>
+      <p>"David and Loretta, I don't think this is a wise thing for you to do. I'm looking at it purely from your side. Both of you have no income right now. Your first priority, David, is to take care of your wife, your children, and your parents. That requires income. Beyond Barriers is only giving you shares — which are not monetizable in any manner. Six to eight months will go by while you use your savings. Building a business normally takes two to three years. And the revenue from these ideas is very small. The scale is limited. Your return will be very little."</p>
+      <cite>— Pastor Ashish Raichu, May 21, 2026</cite>
+    </blockquote>
+
+    <p>
+      The words landed like cold water — clarifying, not crushing.
+    </p>
+    <p>
+      David and Loretta came out of that meeting <strong>"stunned and shattered"</strong> — not by Pastor Ashish, but by the realization of how close they had come to a decision that would have cost the family dearly. There was no salary being offered. There were no protections. And there were already <strong>many people hurt in the history of this ministry</strong>.
+    </p>
+
+    <blockquote>
+      <p>God, thank you that you didn't make us stumble. You didn't make us fall. We know you are holding us in your hands.</p>
+      <cite>— David & Loretta's prayer, leaving the Bible college</cite>
+    </blockquote>
+
+    <p>
+      And then — as if God had already arranged the door-closing on the other side — Brother George himself, while traveling to Kolar to speak at Baldwin's School, asked your father a question about vendor payments. Your father answered from his own principles and convictions. Brother George said, plainly:
+    </p>
+
+    <blockquote>
+      <p>"David, I don't think you and Loretta would be a great match coming on board with us. We are people who think very differently."</p>
+      <cite>— Brother George Ebenezer, on the road to Kolar</cite>
+    </blockquote>
+
+    <p>
+      Your father felt no hurt. He felt <strong>relief and wonder</strong>. God had closed the door from both sides at once.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 6 — NEW CONNECTIONS
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <div class="chapter-marker">New Doors Opening</div>
+    <h2>Who Are Andrew and Janice — and What New Chapter Began?</h2>
+
+    <p>
+      Even as one door closed, another was quietly opening.
+    </p>
+    <p>
+      At the children's camp, your parents met a couple who would spark something new:
+    </p>
+
+    <div class="people-row">
+      <div class="person-card">
+        <div class="person-name">Janice</div>
+        <div class="person-role">Dance Teacher · Mother of two</div>
+      </div>
+      <div class="person-card">
+        <div class="person-name">Andrew Aloysius</div>
+        <div class="person-role">Chief Marketing Officer · IBM veteran · Startup builder</div>
+      </div>
+    </div>
+
+    <p>
+      Andrew was a man who thought in terms of <strong>capital, scale, and market</strong>. He told your parents plainly that to do any kind of meaningful business, they would need somewhere between <strong>₹40 to 50 lakhs of seed capital</strong>. He gave them a completely different lens for evaluating Beyond Barriers — not from the heart alone, but from the ledger.
+    </p>
+    <p>
+      He also had connections. He knew someone who wanted a software product built. He offered to make introductions.
+    </p>
+    <p>
+      From <strong>June 1st onwards</strong>, Andrew, David, and a third collaborator named Twain were going to sit down together and ask: should we build a startup? Should we pool seed funding? Should we enter the world of <strong>software services</strong>?
+    </p>
+    <p>
+      And separately, your father discovered a copywriter named <strong>Joanna Wiebe</strong> on YouTube — a Canadian who spoke about marketing in a way that gripped him. He downloaded everything. He took notes. He remembered that he had once been part of IBM's go-to-market team. Something stirred.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       CHAPTER 7 — INTELLIGENCE LAYER
+  ══════════════════════════════════════════ -->
+  <div class="section">
+    <h2>What Is the "Intelligence Layer" Idea That Excited Your Father?</h2>
+
+    <p>
+      Near the end of the month, your father watched a video from <strong>Y Combinator</strong> — one of the world's most respected startup organisations. A partner was talking about a concept that made your father sit up straight.
+    </p>
+    <p>
+      The idea was this: every organisation needs an <strong>intelligence layer</strong> — a system that captures not just what decisions were made, but <em>why</em> they were made, what context surrounded them, and what results followed. A living memory for how an organisation thinks and acts.
+    </p>
+
+    <ul class="story-list">
+      <li>How was this money spent — and did it work?</li>
+      <li>Why was this decision made — what did we know at the time?</li>
+      <li>What was the result — and what would we do differently?</li>
+      <li>What is the pattern across all our choices over time?</li>
+    </ul>
+
+    <p>
+      Your father believed this wasn't just for companies. He believed <strong>every family</strong> could build one. A way of recording how you made decisions, what you prayed through, where God showed up, what mistakes you avoided — so that future generations don't have to start from zero.
+    </p>
+    <p>
+      This chronicle — the one you are reading right now — is part of that idea.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       BOTTOM LINE
+  ══════════════════════════════════════════ -->
+  <div class="bottom-line">
+    <h2>The Bottom Line</h2>
+    <p>
+      May 2026 was a month in which <strong>God orchestrated protection through pain</strong>. Your father's injured body slowed him down enough to be available. Your parents' unemployment made them hungry enough to say yes — and humble enough to finally hear "no." A pastor's wisdom arrived at exactly the right moment. A ministry leader's candour, which could have stung, instead felt like grace. And through camps filled with children, teenagers, worship, puppets, and laughter, your parents <strong>poured out what they had</strong> — not knowing that God was quietly refilling them with something better.
+    </p>
+    <p style="margin-top: 1.2rem;">
+      Isaac and Nehemiah — when you read this someday — know that your parents were not perfect navigators in May 2026. They were <strong>prayerful, willing, and sometimes nearly wrong</strong>. But they kept bringing every decision before Jesus Christ. And He, who holds all things, held them too. That is the inheritance worth passing on.
+    </p>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="chronicle-footer">
+    <div class="footer-ornament">✦</div>
+    <p>Written by David · Bengaluru, India · May 2026</p>
+    <p style="margin-top: 0.4rem;">For Isaac & Nehemiah — that you would know God's hand in your family's story.</p>
+  </footer>
+
+</div>
+</body>
+</html>
