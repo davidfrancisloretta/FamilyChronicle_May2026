@@ -27,7 +27,7 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
-    background: var(--cream);
+    background: #A5D6A7;
     color: var(--ink);
     font-family: 'Lora', Georgia, serif;
     font-size: 17px;
@@ -188,6 +188,7 @@
   /* ── SECTION HEADINGS ── */
   .section {
     margin-bottom: 3rem;
+    position: relative;
     animation: fadeUp 1s 0.35s ease both;
   }
 
@@ -471,6 +472,47 @@
     background: var(--border);
   }
 
+  /* ── SIDE PHOTOS ── */
+  .side-photo-wrap {
+    width: 220px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+
+  .side-photo-wrap img {
+    width: 100%;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 10px 28px rgba(26, 18, 8, 0.22), 0 2px 6px rgba(26, 18, 8, 0.12);
+    border: 8px solid #fff;
+    outline: 1px solid var(--border);
+    background: #fff;
+  }
+
+  .side-photo-caption {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.74rem;
+    color: var(--ink-muted);
+    margin-top: 0.75rem;
+    letter-spacing: 0.04em;
+    font-style: italic;
+    line-height: 1.5;
+    padding: 0 0.4rem;
+  }
+
+  @media (min-width: 1280px) {
+    .side-photo-wrap {
+      position: absolute;
+      margin: 0;
+      width: 210px;
+      z-index: 3;
+    }
+    .side-photo-wrap.left  { right: calc(100% + 2rem); }
+    .side-photo-wrap.right { left:  calc(100% + 2rem); }
+    .side-photo-wrap.left  img { transform: rotate(-1.8deg); }
+    .side-photo-wrap.right img { transform: rotate(1.8deg);  }
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(18px); }
@@ -557,6 +599,11 @@
       <cite>— Brother George Ebenezer, on the phone that changed the month</cite>
     </blockquote>
 
+    <div class="side-photo-wrap right" style="top: 5rem;">
+      <img src="george-manju.png" alt="Brother George Ebenezer and Aunty Manju">
+      <div class="side-photo-caption">Brother George Ebenezer<br>&amp; Aunty Manju — the voices on the other end of the call</div>
+    </div>
+
     <p>
       Brother George Ebenezer led a ministry called <strong>Beyond Barriers</strong>, which worked with children, teenagers, and counselors. He had just gone through a devastating season — out of a team of 15 to 17 people, <strong>at least 12 had quit in quick succession</strong>. It had begun when a video editor left dramatically, creating a ripple of exits that gutted the team.
     </p>
@@ -579,6 +626,11 @@
     <p>
       The first assignment was the <strong>Life 180 Teen & Adolescent Residential Camp</strong> — a four-day residential experience for young people between <strong>14 and 18 years old</strong>. About <strong>22 young people</strong> attended, and with the team, the total group was 25 to 27 strong.
     </p>
+    <div class="side-photo-wrap left" style="top: 5rem;">
+      <img src="TeenscampPuppet.jpeg" alt="Teens at camp learning puppetry">
+      <div class="side-photo-caption">The teens, learning to minister<br>through puppetry — passing on what they had received</div>
+    </div>
+
     <p>
       These teenagers were being trained in a beautiful idea: how to <strong>minister to younger children</strong>. They learned puppetry. They practiced teaching. They were given the tools to pass on what they themselves were receiving.
     </p>
@@ -719,6 +771,11 @@
       Pastor Ashish listened carefully — and then, with deep wisdom, said something that stopped everything:
     </p>
 
+    <div class="side-photo-wrap right" style="top: 14rem;">
+      <img src="AshishRaichur.png" alt="Pastor Ashish Raichur">
+      <div class="side-photo-caption">Pastor Ashish Raichur — the wise counsel<br>that stopped everything on May 21</div>
+    </div>
+
     <blockquote>
       <p>"David and Loretta, I don't think this is a wise thing for you to do. I'm looking at it purely from your side. Both of you have no income right now. Your first priority, David, is to take care of your wife, your children, and your parents. That requires income. Beyond Barriers is only giving you shares — which are not monetizable in any manner. Six to eight months will go by while you use your savings. Building a business normally takes two to three years. And the revenue from these ideas is very small. The scale is limited. Your return will be very little."</p>
       <cite>— Pastor Ashish Raichu, May 21, 2026</cite>
@@ -776,6 +833,11 @@
       </div>
     </div>
 
+    <div class="side-photo-wrap right" style="top: 6rem;">
+      <img src="janice-andrew.png" alt="Janice and Andrew Aloysius">
+      <div class="side-photo-caption">Janice &amp; Andrew Aloysius —<br>the couple who opened a new chapter</div>
+    </div>
+
     <p>
       Andrew was a man who thought in terms of <strong>capital, scale, and market</strong>. He told your parents plainly that to do any kind of meaningful business, they would need somewhere between <strong>₹40 to 50 lakhs of seed capital</strong>. He gave them a completely different lens for evaluating Beyond Barriers — not from the heart alone, but from the ledger.
     </p>
@@ -810,6 +872,11 @@
       <li>What was the result — and what would we do differently?</li>
       <li>What is the pattern across all our choices over time?</li>
     </ul>
+
+    <div class="side-photo-wrap left" style="top: 4rem;">
+      <img src="DFLRFam.jpeg" alt="David, Loretta, Isaac and Nehemiah">
+      <div class="side-photo-caption">The family this chronicle is written for —<br>David, Loretta, Isaac &amp; Nehemiah</div>
+    </div>
 
     <p>
       Your father believed this wasn't just for companies. He believed <strong>every family</strong> could build one. A way of recording how you made decisions, what you prayed through, where God showed up, what mistakes you avoided — so that future generations don't have to start from zero.
