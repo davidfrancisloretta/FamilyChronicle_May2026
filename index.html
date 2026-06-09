@@ -514,6 +514,51 @@
   .section:nth-child(5) { animation-delay: 0.5s; }
   .section:nth-child(6) { animation-delay: 0.6s; }
 
+  /* ════════════════════════════════════════════
+     MOTION ENHANCEMENTS — Motion (vanilla) + UI UX Pro Max guidance
+  ════════════════════════════════════════════ */
+
+  /* Smooth in-page scrolling — skill: Navigation/Smooth Scroll (High) */
+  html { scroll-behavior: smooth; }
+
+  /* Reading-progress bar — skill: Feedback/Progress Indicators */
+  .reading-progress {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--rust));
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    z-index: 50;
+    pointer-events: none;
+  }
+
+  /* Below-the-fold blocks start hidden ONLY when Motion is active, so
+     no-JS readers still get the full chronicle (progressive enhancement). */
+  html.js .section,
+  html.js .side-photo-wrap,
+  html.js .bottom-line,
+  html.js .station-card,
+  html.js .person-card {
+    opacity: 0;
+    animation: none;
+  }
+
+  /* Respect reader motion preferences — skill: Animation/Reduced Motion (High) */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-delay: 0ms !important;
+    }
+    html.js .section,
+    html.js .side-photo-wrap,
+    html.js .bottom-line,
+    html.js .station-card,
+    html.js .person-card { opacity: 1 !important; }
+    .reading-progress { display: none; }
+    html { scroll-behavior: auto; }
+  }
+
   @media (max-width: 600px) {
     .people-row { grid-template-columns: 1fr; }
     .pull-quote { margin: 2rem 0; }
@@ -525,6 +570,7 @@
 </style>
 </head>
 <body>
+<div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
 <div class="page">
 
   <!-- ══════════════════════════════════════════
@@ -902,5 +948,60 @@
   </footer>
 
 </div>
+
+<!-- ══════════════════════════════════════════
+     MOTION — scroll-reveal (progressive enhancement, reduced-motion safe)
+══════════════════════════════════════════ -->
+<script type="module">
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (!reduceMotion) {
+    // Only hide-then-reveal when we can actually animate.
+    document.documentElement.classList.add('js');
+
+    import("https://cdn.jsdelivr.net/npm/motion@latest/+esm")
+      .then(({ animate, inView, scroll, stagger }) => {
+        const ease = [0.22, 1, 0.36, 1]; // easeOutExpo — calm, editorial
+
+        // Reading-progress bar tied to scroll position (no scroll-jacking).
+        scroll(animate("#reading-progress", { scaleX: [0, 1] }, { ease: "linear" }));
+
+        // Gentle fade + rise as each block scrolls into view.
+        const reveal = (selector) =>
+          inView(selector, (el) => {
+            const node = el.target || el;
+            animate(node, { opacity: [0, 1], y: [22, 0] }, { duration: 0.7, ease });
+          }, { amount: 0.12 });
+
+        reveal(".section");
+        reveal(".side-photo-wrap");
+        reveal(".bottom-line");
+
+        // Cascade the eight Station cards.
+        inView(".stations-grid", (el) => {
+          const grid = el.target || el;
+          animate(
+            Array.from(grid.querySelectorAll(".station-card")),
+            { opacity: [0, 1], y: [18, 0] },
+            { duration: 0.5, delay: stagger(0.06), ease }
+          );
+        }, { amount: 0.1 });
+
+        // Cascade the people cards (Janice & Andrew).
+        inView(".people-row", (el) => {
+          const row = el.target || el;
+          animate(
+            Array.from(row.querySelectorAll(".person-card")),
+            { opacity: [0, 1], y: [18, 0] },
+            { duration: 0.5, delay: stagger(0.12), ease }
+          );
+        }, { amount: 0.2 });
+      })
+      .catch(() => {
+        // CDN unreachable → reveal everything so nothing stays hidden.
+        document.documentElement.classList.remove('js');
+      });
+  }
+</script>
 </body>
 </html>
